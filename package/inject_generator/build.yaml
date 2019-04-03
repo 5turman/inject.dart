@@ -1,14 +1,24 @@
 # Read about `build.yaml` at https://pub.dartlang.org/packages/build_config
 builders:
+  summary_inject_generator:
+    target: ":inject_generator"
+    import: "package:inject_generator/inject_generator.dart"
+    builder_factories:
+    - "summarizeBuilder"
+    build_extensions:
+      ".dart":
+      - ".inject.summary"
+    auto_apply: dependents
+    build_to: cache
+    runs_before:
+    - "inject_generator"
   inject_generator:
     target: ":inject_generator"
     import: "package:inject_generator/inject_generator.dart"
     builder_factories:
-      - "summarizeBuilder"
-      - "generateBuilder"
+    - "generateBuilder"
     build_extensions:
       ".dart":
-        - ".inject.summary"
-        - ".inject.dart"
+      - ".inject.dart"
     auto_apply: dependents
-    build_to: cache
+    build_to: source
