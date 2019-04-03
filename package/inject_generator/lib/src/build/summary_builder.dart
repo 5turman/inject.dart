@@ -49,6 +49,7 @@ class InjectSummaryBuilder extends AbstractInjectBuilder {
             lib,
             'no @module, @injector or @provide annotated classes '
             'found in library');
+        return '';
       }
       summary = new LibrarySummary(
         SymbolPath.toAssetUri(lib.source.uri),
