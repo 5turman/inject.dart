@@ -5,7 +5,9 @@
 */*/build/
 **/pubspec.lock
 
-package/inject/android/
-package/inject/ios/
-package/inject_generator/android/
-package/inject_generator/ios/
+*.iml
+.idea
+.atom/
+.vscode/
+
+**/*.inject.dart
